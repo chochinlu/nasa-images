@@ -21,7 +21,6 @@ const queryUrl = query => `${NASA_QUERY_URL}${query}`;
 const Search = props => {
   return (
     <div>
-      <h1>Search</h1>
       <Formik
         initialValues={initValues}
         onSubmit={(values, { setSubmitting, resetForm }) => {
