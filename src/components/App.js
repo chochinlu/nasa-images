@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Search from './Search';
+import SearchResult from './SearchResult';
+import axios from 'axios';
+
+const NASA_QUERY_URL = 'https://images-api.nasa.gov/search?media_type=image&q=';
 
 function App() {
+  const [fetching, setFetching] = useState(false);
+  const [error, setError] = useState('');
+  const [items, setItems] = useState([]);
+  const [links, setLinks] = useState([]);
+
+  const queryImage = async query => {
+    try {
+      setFetching(true);
+      const result = await axios.get(`${NASA_QUERY_URL}${query}`);
+      // console.log(result);
+      const { items, links } = result.data.collection;
+      setItems(items);
+      setLinks(links);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setFetching(false);
+    }
+  };
+
   return (
     <div>
-      <h1>Hello!</h1>
+      <Search queryImage={queryImage} />
+      {fetching && <p>fetching result .....</p>}
+      {error && <p>{error}</p>}
+      <SearchResult items={items} links={links} />
     </div>
   );
 }
