@@ -7,9 +7,9 @@ const NASA_QUERY_URL = 'https://images-api.nasa.gov/search?media_type=image&q=';
 
 function App() {
   const [fetching, setFetching] = useState(false);
-  const [error, setError] = useState('');
-  const [items, setItems] = useState([]);
-  const [links, setLinks] = useState([]);
+  const [error, setError] = useState(null);
+  const [items, setItems] = useState(null);
+  const [links, setLinks] = useState(null);
 
   const queryImage = async query => {
     try {

@@ -5,7 +5,7 @@ const SearchForm = ({ handleReset, isSubmitting, ...props }) => (
   <Form>
     <Field type="text" name="query" />
     <button type="submit" disabled={isSubmitting}>
-      Search - {isSubmitting}
+      Search
     </button>
     <button type="reset" onClick={handleReset}>
       Clear
