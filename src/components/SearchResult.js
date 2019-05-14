@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 // {
 //   "data": [
@@ -34,6 +35,16 @@ import React from 'react';
 //   }
 // ]
 
+const Gallery = styled.div`
+  padding: 1.5rem;
+`;
+
+const Thumbnail = styled.img`
+  margin: 0.5rem;
+  max-width: 250px;
+  max-height: 150px;
+`;
+
 const SearchResult = ({ items, links, queryImage }) => {
   if (!items) {
     return null;
@@ -44,16 +55,17 @@ const SearchResult = ({ items, links, queryImage }) => {
   }
 
   return (
-    <div>
+    <Gallery>
       {items &&
-        items.slice(0, 3).map(item => (
-          <div key={item.data[0].nasa_id}>
-            <img
+        items
+          // .slice(0, 3)
+          .map(item => (
+            <Thumbnail
+              key={item.data[0].nasa_id}
               src={item.links[0].href}
               alt={`nasa_image-${item.data.nasa_id}`}
             />
-          </div>
-        ))}
+          ))}
       {links &&
         links.map(link => (
           <button key={link.rel} onClick={() => queryImage(link.href)}>
@@ -63,7 +75,7 @@ const SearchResult = ({ items, links, queryImage }) => {
 
       {items && <pre>{JSON.stringify(items.slice(0, 3), null, 2)}</pre>}
       {links && <pre>{JSON.stringify(links, null, 2)}</pre>}
-    </div>
+    </Gallery>
   );
 };
 
