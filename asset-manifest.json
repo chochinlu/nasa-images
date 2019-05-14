@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/nasa-images/static/js/main.11d22636.chunk.js",
+    "main.js.map": "/nasa-images/static/js/main.11d22636.chunk.js.map",
+    "runtime~main.js": "/nasa-images/static/js/runtime~main.b75c515e.js",
+    "runtime~main.js.map": "/nasa-images/static/js/runtime~main.b75c515e.js.map",
+    "static/js/2.f474a0a3.chunk.js": "/nasa-images/static/js/2.f474a0a3.chunk.js",
+    "static/js/2.f474a0a3.chunk.js.map": "/nasa-images/static/js/2.f474a0a3.chunk.js.map",
+    "index.html": "/nasa-images/index.html",
+    "precache-manifest.9e64655888693723e6f6934c204a60b1.js": "/nasa-images/precache-manifest.9e64655888693723e6f6934c204a60b1.js",
+    "service-worker.js": "/nasa-images/service-worker.js"
+  }
+}
