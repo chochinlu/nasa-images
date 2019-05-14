@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gallery, Thumbnail, Info } from './style';
+import { Gallery, Thumbnail, Info, PreBlock } from './style';
 
 // {
 //   "data": [
@@ -63,8 +63,8 @@ const SearchResult = ({ items, links, queryImage }) => {
           </button>
         ))}
 
-      {items && <pre>{JSON.stringify(items.slice(0, 3), null, 2)}</pre>}
-      {links && <pre>{JSON.stringify(links, null, 2)}</pre>}
+      {items && <PreBlock>{JSON.stringify(items[0], null, 2)}</PreBlock>}
+      {links && <PreBlock>{JSON.stringify(links, null, 2)}</PreBlock>}
     </Gallery>
   );
 };

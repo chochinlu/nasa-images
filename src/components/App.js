@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Search from './Search';
 import SearchResult from './SearchResult';
 import axios from 'axios';
-import { GlobalStyle, Main, Info } from './style';
+import { GlobalStyle, Main, Info, Result } from './style';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 function App() {
   const [fetching, setFetching] = useState(false);
@@ -29,14 +31,16 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div>
-        <Search queryImage={queryImage} />
+      <ThemeProvider theme={theme}>
         <Main>
-          {fetching && <Info>Fetching .....</Info>}
-          {error && <Info>{error}</Info>}
-          <SearchResult items={items} links={links} queryImage={queryImage} />
+          <Search queryImage={queryImage} />
+          <Result>
+            {fetching && <Info>Fetching .....</Info>}
+            {error && <Info>{error}</Info>}
+            <SearchResult items={items} links={links} queryImage={queryImage} />
+          </Result>
         </Main>
-      </div>
+      </ThemeProvider>
     </>
   );
 }

@@ -18,11 +18,20 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Main = styled.div`
-  padding: 1rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* padding: 1rem; */
   /* border: 1px solid red; */
 `;
 
+export const Result = styled.div`
+  flex: 1;
+  background-color: ${props => props.theme.colors.background};
+`;
+
 export const Info = styled.h3`
+  color: ${props => props.theme.colors.textLight}
   font-size: 3rem;
   margin: 1rem;
 `;
@@ -44,7 +53,7 @@ export const InvertButton = styled(Button)`
 `;
 
 export const SearchWrapper = styled.div`
-  background-color: orange;
+  background-color: ${props => props.theme.colors.primaryDark};
   padding: 2rem;
   color: white;
 
@@ -69,4 +78,13 @@ export const Thumbnail = styled.img`
   margin: 0.5rem;
   max-width: 250px;
   max-height: 150px;
+`;
+
+export const PreBlock = styled.pre`
+  font-size: 1.5rem;
+  color: ${props => props.theme.colors.text}
+  margin: 1.5rem 0.5rem;
+  padding: 1rem;
+  background-color: ${props => props.theme.colors.background};
+  border: 1px solid ${props => props.theme.colors.textLight}
 `;
