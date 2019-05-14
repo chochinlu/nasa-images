@@ -98,6 +98,14 @@ export const Thumbnail = styled.img`
   margin: 0.5rem;
   max-width: 250px;
   max-height: 150px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(2);
+    border: 2px solid ${props => props.theme.colors.background};
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
 `;
 
 export const PreBlock = styled.pre`
