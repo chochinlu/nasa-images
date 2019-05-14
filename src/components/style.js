@@ -34,7 +34,7 @@ export const Result = styled.div`
 export const Info = styled.h3`
   color: ${props => props.theme.colors.textLight};
   font-size: 3rem;
-  margin: 1rem;
+  margin: 1rem 2rem;
 `;
 
 export const ButtonGroup = styled.div`
