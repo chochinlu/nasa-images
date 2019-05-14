@@ -1,16 +1,22 @@
 {
   "name": "nasa-images",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://myusername.github.io/nasa-images",
+  "author": "Cho-Ching Lu <chochinlu@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "formik": "^1.5.4",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "styled-components": "^4.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
