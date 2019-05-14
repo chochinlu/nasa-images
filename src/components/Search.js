@@ -3,13 +3,17 @@ import { Formik, Form, Field } from 'formik';
 // import nasa from '../images/nasa.png';
 import { Button, InvertButton, SearchWrapper } from './style';
 
-const SearchForm = ({ handleReset, isSubmitting, ...props }) => (
+const SearchForm = ({ handleReset, isSubmitting, values, ...props }) => (
   <Form>
     <Field type="text" name="query" placeholder="keyword" />
     <Button type="submit" disabled={isSubmitting}>
       Search
     </Button>
-    <InvertButton type="reset" onClick={handleReset}>
+    <InvertButton
+      type="reset"
+      onClick={handleReset}
+      disabled={values.query === '' ? 'disabled' : ''}
+    >
       Clear
     </InvertButton>
   </Form>
