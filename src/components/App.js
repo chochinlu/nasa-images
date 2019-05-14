@@ -3,6 +3,7 @@ import Search from './Search';
 import SearchResult from './SearchResult';
 import axios from 'axios';
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   *,*::before, *::after {
@@ -20,6 +21,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Main = styled.div`
+  padding: 1rem;
+  /* border: 1px solid red; */
+`;
+
+const Info = styled.h3`
+  font-size: 3rem;
+  margin: 1rem;
+`;
+
 function App() {
   const [fetching, setFetching] = useState(false);
   const [error, setError] = useState(null);
@@ -30,10 +41,11 @@ function App() {
     try {
       setFetching(true);
       const result = await axios.get(url);
-      // console.log(result);
       const { items, links } = result.data.collection;
       setItems(items);
-      setLinks(links);
+      if (links) {
+        setLinks(links);
+      }
     } catch (error) {
       setError(error.message);
     } finally {
@@ -46,9 +58,11 @@ function App() {
       <GlobalStyle />
       <div>
         <Search queryImage={queryImage} />
-        {fetching && <p>fetching result .....</p>}
-        {error && <p>{error}</p>}
-        <SearchResult items={items} links={links} queryImage={queryImage} />
+        <Main>
+          {fetching && <Info>Fetching .....</Info>}
+          {error && <Info>{error}</Info>}
+          <SearchResult items={items} links={links} queryImage={queryImage} />
+        </Main>
       </div>
     </>
   );
