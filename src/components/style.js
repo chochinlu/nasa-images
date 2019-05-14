@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   *,*::before, *::after {
     margin:0;
     padding: 0;
+    outline: none;
     box-sizing: inherit;    
   }
 
@@ -31,19 +32,38 @@ export const Result = styled.div`
 `;
 
 export const Info = styled.h3`
-  color: ${props => props.theme.colors.textLight}
+  color: ${props => props.theme.colors.textLight};
   font-size: 3rem;
   margin: 1rem;
 `;
 
+export const ButtonGroup = styled.div`
+  display: flex;
+`;
+
 export const Button = styled.button`
   color: white;
-  background-color: #ff4081;
+  background-color: ${props => props.theme.colors.accent};
   font-size: 3rem;
   padding: 5px 20px;
-  border: none;
   margin-right: 1rem;
   border: 2px solid white;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+`;
+
+export const NextButton = styled(Button)`
+  flex: 1;
+  margin: 0;
 `;
 
 export const InvertButton = styled(Button)`
@@ -82,9 +102,9 @@ export const Thumbnail = styled.img`
 
 export const PreBlock = styled.pre`
   font-size: 1.5rem;
-  color: ${props => props.theme.colors.text}
+  color: ${props => props.theme.colors.text};
   margin: 1.5rem 0.5rem;
   padding: 1rem;
   background-color: ${props => props.theme.colors.background};
-  border: 1px solid ${props => props.theme.colors.textLight}
+  border: 1px solid ${props => props.theme.colors.textLight};
 `;

@@ -1,5 +1,12 @@
 import React from 'react';
-import { Gallery, Thumbnail, Info, PreBlock } from './style';
+import {
+  Gallery,
+  Thumbnail,
+  Info,
+  PreBlock,
+  ButtonGroup,
+  NextButton
+} from './style';
 
 // {
 //   "data": [
@@ -56,12 +63,15 @@ const SearchResult = ({ items, links, queryImage }) => {
               alt={`nasa_image-${item.data.nasa_id}`}
             />
           ))}
-      {links &&
-        links.map(link => (
-          <button key={link.rel} onClick={() => queryImage(link.href)}>
-            {link.rel === 'next' ? `${link.prompt} >` : `< ${link.prompt}`}
-          </button>
-        ))}
+      {links && (
+        <ButtonGroup>
+          {links.map(link => (
+            <NextButton key={link.rel} onClick={() => queryImage(link.href)}>
+              {link.rel === 'next' ? `${link.prompt} >` : `< ${link.prompt}`}
+            </NextButton>
+          ))}
+        </ButtonGroup>
+      )}
 
       {items && <PreBlock>{JSON.stringify(items[0], null, 2)}</PreBlock>}
       {links && <PreBlock>{JSON.stringify(links, null, 2)}</PreBlock>}
