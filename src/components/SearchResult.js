@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Gallery, Thumbnail, Info } from './style';
 
 // {
 //   "data": [
@@ -35,23 +35,13 @@ import styled from 'styled-components';
 //   }
 // ]
 
-const Gallery = styled.div`
-  padding: 1.5rem;
-`;
-
-const Thumbnail = styled.img`
-  margin: 0.5rem;
-  max-width: 250px;
-  max-height: 150px;
-`;
-
 const SearchResult = ({ items, links, queryImage }) => {
   if (!items) {
     return null;
   }
 
   if (items.length === 0) {
-    return <h3>Sorry, no matching results.</h3>;
+    return <Info>Sorry, no matching results.</Info>;
   }
 
   return (
