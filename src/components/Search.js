@@ -5,7 +5,12 @@ import { Button, InvertButton, SearchWrapper } from './style';
 
 const SearchForm = ({ handleReset, isSubmitting, values, ...props }) => (
   <Form>
-    <Field type="text" name="query" placeholder="keyword" />
+    <Field
+      type="text"
+      name="query"
+      placeholder='Search for ... (e.g. "Orion")'
+      size="30"
+    />
     <Button type="submit" disabled={isSubmitting}>
       Search
     </Button>

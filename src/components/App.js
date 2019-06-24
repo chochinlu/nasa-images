@@ -15,9 +15,12 @@ function App() {
   const queryImage = async url => {
     try {
       setFetching(true);
+
       const result = await axios.get(url);
       const { items, links } = result.data.collection;
+
       setItems(items);
+
       if (links) {
         setLinks(links);
       }

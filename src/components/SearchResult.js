@@ -3,7 +3,7 @@ import {
   Gallery,
   Thumbnail,
   Info,
-  PreBlock,
+  // PreBlock,
   ButtonGroup,
   NextButton
 } from './style';
@@ -73,8 +73,8 @@ const SearchResult = ({ items, links, queryImage }) => {
         </ButtonGroup>
       )}
 
-      {items && <PreBlock>{JSON.stringify(items[0], null, 2)}</PreBlock>}
-      {links && <PreBlock>{JSON.stringify(links, null, 2)}</PreBlock>}
+      {/* {items && <PreBlock>{JSON.stringify(items[0], null, 2)}</PreBlock>}
+      {links && <PreBlock>{JSON.stringify(links, null, 2)}</PreBlock>} */}
     </Gallery>
   );
 };
